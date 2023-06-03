@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+</head>
+
+<body>
+    <div class="blank-page">
+        <button id="popup-btn">Open Popup</button>
+    </div>
+
+    <div id="popup" class="popup">
+        <!-- <div class="popup-top-content"> <p>New Job</p> </div> -->
+        <div class="popup-content" id="popupContent1">
+            <div class="">
+                <h2>Select a client</h2>
+                <div class="search-bar-container">
+                    <input type="text" id="searchBar" class="search-bar" placeholder="Search" oninput="filterTable()">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <!-- <div class="underline"></div> -->
+                <div class="table-container">
+                    <table id="data-table">
+                        <thead>
+                            <tr>
+                                <th colspan="2">
+                                    Organisation
+                                    <i class="sort-icon fas fa-sort" data-sortby="Organisation" data-sortdir=""></i>
+                                </th>
+                                <th>
+                                    Code
+                                    <i class="sort-icon fas fa-sort" data-sortby="Code" data-sortdir=""></i>
+                                </th>
+                                <th>
+                                    Handler
+                                    <i class="sort-icon fas fa-sort" data-sortby="Handler" data-sortdir=""></i>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Table rows will be added dynamically using JavaScript -->
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4">
+                                    <!-- Pagination buttons -->
+                                    <div class="pagination">
+                                        <span id="currentPage"></span>
+                                        <span>of</span>
+                                        <span id="totalItems"></span>
+                                        <button id="firstBtn"><i id="firstBtn" class="fas fa-angle-double-left"></i></button>
+                                        <button id="prevBtn"><i id="prevBtn" class="fas fa-chevron-left"></i></button>
+                                        <button id="nextBtn"><i id="nextBtn" class="fas fa-chevron-right"></i></button>
+                                        <button id="lastBtn"><i id="lastBtn" class="fas fa-angle-double-right"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="container footer">
+                    <div class="filing-circles">
+                        <div class="circle active"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                    </div>
+                    <div class="popup-navigation">
+                        <button id="nextButton1" class="next-btn" onclick="showNextContent()">Next</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="popup-content" id="popupContent2">
+            <div class="">
+                <p>Use a template?</p>
+                <div class="dropdown-container">
+                    <select id="templateDropdown" class="dropdown" onchange="templateDropdown()">
+                        <option value="" disabled selected>Select a template</option>
+                        <option value="template1">Template 1</option>
+                        <option value="template2">Template 2</option>
+                        <option value="template3">Template 3</option>
+                    </select>
+                </div>
+
+                <div class="container footer">
+                    <div class="filing-circles">
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                    </div>
+                    <div class="popup-navigation">
+                        <button id="nextButton2" class="next-btn" onclick="showNextContent()" disabled>Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="popup-content" id="popupContent3">
+            <div class="scrollable-section">
+                <p>Use a template?</p>
+                <div class="dropdown-container">
+                    <select id="templateDropdown2" class="dropdown">
+                        <option value="" disabled selected>Select a template</option>
+                        <option value="template1">Template 1</option>
+                        <option value="template2">Template 2</option>
+                        <option value="template3">Template 3</option>
+                    </select>
+                </div>
+                <p>Views</p>
+                <div class="dropdown-container">
+                    <select id="viewDropdown" class="dropdown">
+                        <option value="" disabled selected>Select a view</option>
+                        <option value="view1">view 1</option>
+                        <option value="view2">view 2</option>
+                        <option value="view3">view 3</option>
+                    </select>
+                </div>
+
+                <div class="container">
+                    <div class="column">
+                        <p>Column 1</p>
+                        <div class="column-content checkbox">
+                            <ul class="checklist">
+                                <li>
+                                    <input type="checkbox" id="item1" name="item1">
+                                    <label for="item1">Dates</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="item2" name="item2">
+                                    <label for="item2">Status</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="item3" name="item3">
+                                    <label for="item3">Billing Plans</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="item4" name="item4">
+                                    <label for="item4">Activities</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="item5" name="item5">
+                                    <label for="item5">Phase Quotes</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="item6" name="item6">
+                                    <label for="item6">Stages</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <p>Column 2</p>
+                        <div class="column-content checkbox">
+                            <ul class="checklist">
+                                <li>
+                                    <input type="checkbox" id="itemA" name="itemA">
+                                    <label for="itemA">Time</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="itemB" name="itemB">
+                                    <label for="itemB">Material</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="itemC" name="itemC">
+                                    <label for="itemC">Purchase</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="itemD" name="itemD">
+                                    <label for="itemD">Use actual values</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <p>Phases to copy</p>
+                <div class="table-container">
+                    <table id="data-table">
+                        <thead>
+                            <tr>
+                                <th>Phase</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Phase 1</td>
+                                <td>Description</td>
+                            </tr>
+                            <tr>
+                                <td>Phase 2</td>
+                                <td>Description</td>
+                            </tr>
+                            <tr>
+                                <td>Phase 3</td>
+                                <td>Description</td>
+                            </tr>
+                            <tr>
+                                <td>Phase 4</td>
+                                <td>Description</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <div class="container footer">
+                <div class="filing-circles">
+                    <div class="circle "></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+                <div class="popup-navigation">
+                    <button id="nextButton3" class="next-btn" onclick="showNextContent()">Next</button>
+                </div>
+            </div>
+        </div>
+        <div class="popup-content" id="popupContent4">
+            <div class="">
+                <h3> Extra Options </h3>
+                <ul class="checklist">
+                    <li>
+                        <input type="checkbox" id="itemA" name="itemA">
+                        <label for="itemA">Own job number</label>
+                    </li>
+                </ul>
+
+                <div class="container">
+                    <div class="column">
+                        <p>Handler</p>
+                        <div class="column-content ">
+                            <ul class="checklist">
+                                <li>
+                                    <input type="radio" id="itemradio1" name="itemradio1">
+                                    <label for="itemradio1">Client default handler</label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="itemradio1" name="itemradio1">
+                                    <label for="itemradio1">Current User</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container footer">
+                    <div class="filing-circles">
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                    </div>
+                    <div class="popup-navigation">
+                        <button id="nextButton4" class="next-btn" onclick="showNextContent()">Create job</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
